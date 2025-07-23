@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Compras</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Lista de Compras</h1>
+
+      <div class="form">
+        <input type="text" id="produto" placeholder="Produto" />
+        <input type="number" id="quantidade" placeholder="Quantidade" min="1" />
+        <input type="number" id="valor" placeholder="Valor R$" step="0.01" />
+        <select id="categoria">
+          <option value="">Categoria</option>
+          <option value="Alimentos">Alimentos</option>
+          <option value="Bebidas">Bebidas</option>
+          <option value="Limpeza">Limpeza</option>
+          <option value="Higiene">Higiene</option>
+          <option value="Outros">Outros</option>
+        </select>
+        <button onclick="adicionarItem()">Adicionar</button>
+        <input
+          type="text"
+          id="busca"
+          onkeyup="filtrarLista()"
+          placeholder="Buscar produto..."
+        />
+      </div>
+
+      <ul id="lista"></ul>
+
+      <div class="total">
+        <strong>Total:</strong> R$ <span id="total">0.00</span>
+      </div>
+
+      <div class="buttons">
+        <button onclick="finalizarCompra()" class="finalizar">
+          Finalizar Compra
+        </button>
+        <button onclick="limparLista()" class="limpar">Limpar Lista</button>
+        <button onclick="mostrarGastosMensais()" class="mensal">
+          Ver Gastos Mensais
+        </button>
+      </div>
+
+      <canvas id="graficoPizza" width="300" height="300"></canvas>
+    </div>
+
+    <div class="mensal-container" style="display: none">
+      <h2>Gastos Mensais</h2>
+      <ul id="gastosMensais"></ul>
+      <div id="detalhesGastosDia" style="display: none">
+        <h3 id="tituloDetalhes"></h3>
+        <ul id="listaDetalhes"></ul>
+        <canvas id="graficoDetalhado" width="300" height="300"></canvas>
+      </div>
+      <button onclick="voltar()" class="btn voltar">Voltar</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
