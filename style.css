@@ -1,51 +1,88 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #5d5deb;
+  font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    sans-serif;
+  background: linear-gradient(135deg, #5d5deb 0%, #3a3a9e 100%);
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  min-height: 100vh;
 }
 
 .container {
-  max-width: 700px;
+  max-width: 800px;
   margin: 20px auto;
-  padding: 20px;
+  padding: 30px;
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
 }
 
 h1,
 h2 {
   text-align: center;
-  color: #333;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+h1::after,
+h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #5d5deb, #3a3a9e);
+  margin: 10px auto;
+  border-radius: 2px;
 }
 
 .form {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
   justify-content: space-between;
+  margin-bottom: 25px;
 }
 
 .form input,
 .form select {
   flex: 1 1 30%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 2px solid #e0e0e0;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.form input:focus,
+.form select:focus {
+  border-color: #5d5deb;
+  box-shadow: 0 0 0 3px rgba(93, 93, 235, 0.2);
+  outline: none;
 }
 
 .form button {
-  padding: 10px 20px;
-  background-color: #4caf50;
+  padding: 12px 25px;
+  background: linear-gradient(to right, #4caf50, #2e7d32);
   border: none;
   color: white;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form button:hover {
-  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(to right, #43a047, #2e7d32);
 }
 
 ul#lista {
@@ -56,128 +93,305 @@ ul#lista {
 
 ul#lista li {
   background: #f9f9f9;
-  padding: 12px;
-  margin-bottom: 8px;
-  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+ul#lista li:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #fff;
 }
 
 .total {
   text-align: right;
-  margin-top: 20px;
-  font-size: 1.2em;
-  color: #333;
+  margin: 25px 0;
+  font-size: 1.3em;
+  color: #2c3e50;
+  font-weight: bold;
+  padding: 15px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 25px;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
 }
 
 button.finalizar {
-  background-color: #02f83c;
+  background: linear-gradient(to right, #02f83c, #00c853);
   color: white;
-  padding: 10px;
+  padding: 12px 25px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  margin-top: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex: 1;
 }
 
 button.limpar {
-  background-color: #e11304;
+  background: linear-gradient(to right, #e11304, #c62828);
   color: white;
-  padding: 10px;
+  padding: 12px 25px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  margin-top: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex: 1;
 }
 
 button.mensal {
-  background-color: #0e70f0;
+  background: linear-gradient(to right, #0e70f0, #1565c0);
   color: white;
-  padding: 10px;
+  padding: 12px 25px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  margin-top: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex: 1;
 }
 
 button.voltar {
-  background-color: #ff9800;
+  background: linear-gradient(to right, #ff9800, #f57c00);
   color: white;
-  padding: 10px;
+  padding: 12px 25px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  margin-top: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 button.edit {
-  background-color: #ffc107;
+  background: linear-gradient(to right, #ffc107, #ffa000);
   color: black;
   border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
+  padding: 8px 15px;
+  border-radius: 8px;
   cursor: pointer;
-  margin-left: 5px;
+  margin-left: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
 button.remove {
-  background-color: #e53935;
+  background: linear-gradient(to right, #e53935, #c62828);
   color: white;
   border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
+  padding: 8px 15px;
+  border-radius: 8px;
   cursor: pointer;
-  margin-left: 5px;
+  margin-left: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+button.edit:hover,
+button.remove:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .mensal-container {
-  max-width: 700px;
+  max-width: 800px;
   margin: 20px auto;
   background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 button.detalhes {
-  background-color: #009688;
+  background: linear-gradient(to right, #009688, #00796b);
   color: white;
-  padding: 6px 12px;
+  padding: 8px 15px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 15px;
   font-weight: bold;
+  transition: all 0.3s ease;
 }
 
 button.detalhes:hover {
-  background-color: #00796b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to right, #00897b, #00695c);
 }
 
 .relatorio {
   background: #f5f5f5;
   border: 1px solid #ddd;
-  margin-top: 15px;
-  padding: 15px;
-  border-radius: 10px;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  animation: slideIn 0.4s ease;
 }
 
-#graficoPizza {
-  display: block;
-  margin: 20px auto;
-  max-width: 100%;
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
+
+#graficoPizza,
 #graficoDetalhado {
   display: block;
-  margin: 20px auto;
+  margin: 30px auto;
   max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+#graficoPizza:hover,
+#graficoDetalhado:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .form input,
+  .form select {
+    flex: 1 1 100%;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  button.finalizar,
+  button.limpar,
+  button.mensal {
+    width: 100%;
+  }
+}
+
+/* Efeito de loading */
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(0.98);
+  }
+}
+
+.loading {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Temas */
+body.dark-mode {
+  background: linear-gradient(135deg, #121212 0%, #1a1a2e 100%);
+  color: #f0f0f0;
+}
+
+body.dark-mode .container,
+body.dark-mode .mensal-container {
+  background: #1e1e1e;
+  color: #f0f0f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode .total {
+  color: #f0f0f0;
+}
+
+body.dark-mode .form input,
+body.dark-mode .form select {
+  background-color: #2d2d2d;
+  border-color: #444;
+  color: #f0f0f0;
+}
+
+body.dark-mode ul#lista li,
+body.dark-mode .relatorio,
+body.dark-mode .total {
+  background-color: #2d2d2d;
+  color: #f0f0f0;
+}
+
+body.dark-mode button {
+  opacity: 0.9;
+}
+
+body.dark-mode button:hover {
+  opacity: 1;
+}
+
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+#themeToggle {
+  padding: 8px 15px;
+  background: linear-gradient(to right, #5d5deb, #3a3a9e);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#themeToggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Ajustes para gráficos no modo escuro */
+body.dark-mode #graficoPizza,
+body.dark-mode #graficoDetalhado {
+  background-color: #2d2d2d;
+  padding: 10px;
+  border-radius: 12px;
 }
